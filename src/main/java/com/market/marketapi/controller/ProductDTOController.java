@@ -44,4 +44,10 @@ public class ProductDTOController {
                 new ResponseEntity(HttpStatus.OK) :
                 new ResponseEntity(HttpStatus.NOT_FOUND);
     }
+    @PutMapping("/update")
+    public ResponseEntity updateProduct(@RequestBody ProductDTO productDTO){
+        return productDTOService.updateProduct(productDTO) ?
+                new ResponseEntity(HttpStatus.OK) :
+                new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
 }

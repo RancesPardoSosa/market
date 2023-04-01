@@ -11,5 +11,6 @@ public interface ProductDAO {
     Optional<ProductDTO> getProduct(Integer idProduct);
     Optional<List<ProductDTO>> getByCategory(Integer idCategory);
     Boolean deleteProduct(Integer idProduct);
+    Boolean updateProduct(ProductDTO productDTO);
 
 }

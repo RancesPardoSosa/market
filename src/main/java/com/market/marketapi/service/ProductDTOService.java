@@ -27,4 +27,7 @@ public class ProductDTOService {
     public Boolean deleteProduct(Integer idProduct){
         return productDAO.deleteProduct(idProduct);
     }
+    public Boolean updateProduct(ProductDTO productDTO){
+        return productDAO.updateProduct(productDTO);
+    }
 }

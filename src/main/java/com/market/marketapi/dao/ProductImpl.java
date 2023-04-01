@@ -46,4 +46,11 @@ public class ProductImpl implements ProductDAO{
                 .map(productDTO -> {productCrudDAO.deleteById(idProduct); return true;})
                 .orElse(false);
     }
+
+    @Override
+    public Boolean updateProduct(ProductDTO productDTO) {
+        return getProduct(productDTO.getIdProduct())
+                .map(productDTO1 -> {productCrudDAO.save(mapper.toProduct(productDTO1)); return true;})
+                .orElse(false);
+    }
 }
