@@ -50,7 +50,11 @@ public class ProductImpl implements ProductDAO{
     @Override
     public Boolean updateProduct(ProductDTO productDTO) {
         return getProduct(productDTO.getIdProduct())
-                .map(productDTO1 -> {productCrudDAO.save(mapper.toProduct(productDTO1)); return true;})
+                .map(productDTO1 -> {
+                    productCrudDAO.save(mapper.toProduct(productDTO));
+                    return true;
+                })
                 .orElse(false);
+
     }
 }
