@@ -33,4 +33,11 @@ public class ProductImpl implements ProductDAO{
         return productCrudDAO.findByIdCategory(idCategory)
                 .map(products -> mapper.toProductDtoList(products));
     }
+
+    @Override
+    public Boolean deleteProduct(Integer idProduct) {
+        return getProduct(idProduct)
+                .map(productDTO -> {productCrudDAO.deleteById(idProduct); return true;})
+                .orElse(false);
+    }
 }
