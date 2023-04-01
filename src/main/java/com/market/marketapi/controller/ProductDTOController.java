@@ -16,6 +16,12 @@ import java.util.List;
 public class ProductDTOController {
     @Autowired
     private ProductDTOService productDTOService;
+    @PostMapping("/add")
+    public ResponseEntity<ProductDTO> addProduct(@RequestBody ProductDTO productDTO){
+        return productDTOService.addProduct(productDTO)
+                .map(productDTO1 -> new ResponseEntity<>(productDTO1,HttpStatus.CREATED))
+                .orElse(new ResponseEntity(HttpStatus.BAD_REQUEST));
+    }
     @GetMapping("/all")
     public ResponseEntity<List<ProductDTO>> getAll(){
         return new ResponseEntity<>(productDTOService.getAll(), HttpStatus.OK);

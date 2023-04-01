@@ -16,6 +16,12 @@ public class ProductImpl implements ProductDAO{
     private ProductCrudDAO productCrudDAO;
     @Autowired
     private ProductDTOMapper mapper;
+
+    @Override
+    public Optional<ProductDTO> addProduct(ProductDTO productDTO) {
+        return Optional.of(mapper.toProductDto(productCrudDAO.save(mapper.toProduct(productDTO))));
+    }
+
     @Override
     public List<ProductDTO> getAll() {
         List<Product> productos = (List<Product>)productCrudDAO.findAll();

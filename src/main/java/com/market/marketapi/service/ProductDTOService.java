@@ -12,6 +12,9 @@ import java.util.Optional;
 public class ProductDTOService {
     @Autowired
     private ProductDAO productDAO;
+    public Optional<ProductDTO> addProduct(ProductDTO productDTO){
+        return productDAO.addProduct(productDTO);
+    }
     public List<ProductDTO> getAll(){
         return productDAO.getAll();
     }

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProductDAO {
+    Optional<ProductDTO> addProduct(ProductDTO productDTO);
     List<ProductDTO> getAll();
     Optional<ProductDTO> getProduct(Integer idProduct);
     Optional<List<ProductDTO>> getByCategory(Integer idCategory);
